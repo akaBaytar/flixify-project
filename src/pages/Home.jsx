@@ -1,9 +1,12 @@
 import { Fragment } from 'react';
+import Slider from '../components/Slider';
 
 const Home = () => {
   return (
     <Fragment>
-      <div className='container min-h-screen'>Home Page</div>
+      <div className='container'>
+        <Slider />
+      </div>
     </Fragment>
   );
 };

@@ -3,7 +3,7 @@ import { Fragment } from "react"
 const Movies = () => {
   return (
     <Fragment>
-      <div className='container min-h-screen'>Movies Page</div>
+      <div className='container'>Movies Page</div>
     </Fragment>
   );
 }
