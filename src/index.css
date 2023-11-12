@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  color: #fcf5ed;
+  background-color: #191717;
+}
+
+.container {
+  @apply mx-auto px-1;
+}
+
+.activeLink {
+  @apply text-[#BEADFA];
+}
+
+.navLink {
+  @apply hover:text-[#BEADFA] duration-300;
+}
