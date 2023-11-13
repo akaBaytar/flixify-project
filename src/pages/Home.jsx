@@ -7,15 +7,15 @@ import PopularSection from '../components/Popular';
 const Home = () => {
   return (
     <Fragment>
-      <section className='py-12 px-6 bg-slider'>
-        <h2 className='uppercase text-3xl font-semibold text-center mb-12'>
-          Now Playing
-        </h2>
-        <Slider />
-      </section>
       <div className='container'>
         <SearchForm />
-        <h2 className='uppercase text-3xl font-semibold text-center mb-3'>
+        <section className='my-12'>
+          <h2 className='uppercase text-3xl font-semibold text-center mb-6'>
+            Now Playing
+          </h2>
+          <Slider />
+        </section>
+        <h2 className='uppercase text-3xl font-semibold text-center mb-6'>
           Popular Movies
         </h2>
         <PopularSection />

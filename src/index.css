@@ -18,7 +18,3 @@ body {
 .navLink {
   @apply hover:text-[#beadfa] duration-300;
 }
-
-.bg-slider {
-  min-height: calc(100vh - 5rem);
-}

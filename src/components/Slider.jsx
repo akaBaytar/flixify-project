@@ -37,10 +37,6 @@ const Slider = () => {
           slidesPerView: 4,
           spaceBetween: 50,
         },
-        1200: {
-          slidesPerView: 5,
-          spaceBetween: 60,
-        },
       }}>
       {data?.results.map(
         ({ id, original_title, poster_path, vote_average }) => (
