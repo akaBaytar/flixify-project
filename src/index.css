@@ -12,9 +12,9 @@ body {
 }
 
 .activeLink {
-  @apply text-[#BEADFA];
+  @apply text-[#beadfa];
 }
 
 .navLink {
-  @apply hover:text-[#BEADFA] duration-300;
+  @apply hover:text-[#beadfa] duration-300;
 }

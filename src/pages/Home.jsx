@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import Slider from '../components/Slider';
+import SearchForm from '../components/SearchForm';
 
 const Home = () => {
   return (
@@ -10,7 +11,9 @@ const Home = () => {
         </h2>
         <Slider />
       </section>
-      <div className='container'></div>
+      <div className='container'>
+        <SearchForm />
+      </div>
     </Fragment>
   );
 };
