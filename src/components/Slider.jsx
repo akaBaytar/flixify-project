@@ -1,12 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, A11y } from 'swiper/modules';
+import { A11y, Autoplay } from 'swiper/modules';
 
 import useFetch from '../hooks/useFetch';
 
+import { StarFill } from 'react-bootstrap-icons';
+
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 
 const Slider = () => {
   const { data, isLoading } = useFetch(
@@ -19,15 +18,17 @@ const Slider = () => {
 
   return (
     <Swiper
-      modules={[Pagination, A11y]}
-      spaceBetween={50}
+      modules={[A11y, Autoplay]}
       slidesPerView={1}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
       breakpoints={{
-        500: {
+        640: {
           slidesPerView: 1,
-          spaceBetween: 20,
         },
-        720: {
+        768: {
           slidesPerView: 2,
           spaceBetween: 30,
         },
@@ -35,17 +36,26 @@ const Slider = () => {
           slidesPerView: 3,
           spaceBetween: 40,
         },
-      }}
-      pagination={{ clickable: true }}>
-      {data?.results.map(({ id, original_title, backdrop_path }) => (
-        <SwiperSlide key={id}>
-          {original_title}
-          <img
-            src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
-            alt={original_title}
-          />
-        </SwiperSlide>
-      ))}
+        1280: {
+          slidesPerView: 4,
+          spaceBetween: 50,
+        },
+      }}>
+      {data?.results.map(
+        ({ id, original_title, poster_path, vote_average }) => (
+          <SwiperSlide key={id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+              alt={original_title}
+              className='rounded-t-lg mx-auto'
+            />
+            <div className='flex gap-1 justify-center font-semibold rounded-b-lg py-3 bg-[#0f0f0f]'>
+              <StarFill className='text-xl text-yellow-500' />
+              {`${vote_average.toFixed(1)} / 10`}
+            </div>
+          </SwiperSlide>
+        )
+      )}
     </Swiper>
   );
 };

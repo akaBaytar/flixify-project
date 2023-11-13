@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         sans: ['Poppins, sans-serif'],
       },
+      backgroundImage: {
+        'slider': "url('/images/background.jpg')",
+      },
     },
   },
   plugins: [],
