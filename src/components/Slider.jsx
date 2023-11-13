@@ -25,18 +25,15 @@ const Slider = () => {
         disableOnInteraction: false,
       }}
       breakpoints={{
-        640: {
-          slidesPerView: 1,
-        },
-        768: {
+        540: {
           slidesPerView: 2,
           spaceBetween: 30,
         },
-        1024: {
+        768: {
           slidesPerView: 3,
           spaceBetween: 40,
         },
-        1280: {
+        1024: {
           slidesPerView: 4,
           spaceBetween: 50,
         },
@@ -47,7 +44,7 @@ const Slider = () => {
             <img
               src={`https://image.tmdb.org/t/p/w500${poster_path}`}
               alt={original_title}
-              className='rounded-t-lg mx-auto'
+              className='rounded-t-lg mx-auto w-full'
             />
             <div className='flex gap-1 justify-center font-semibold rounded-b-lg py-3 bg-[#0f0f0f]'>
               <StarFill className='text-xl text-yellow-500' />
