@@ -33,9 +33,13 @@ const Slider = () => {
           slidesPerView: 3,
           spaceBetween: 40,
         },
-        1024: {
+        992: {
           slidesPerView: 4,
           spaceBetween: 50,
+        },
+        1200: {
+          slidesPerView: 5,
+          spaceBetween: 60,
         },
       }}>
       {data?.results.map(
