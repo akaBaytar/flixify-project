@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Popular = () => {
   const [movies, setMovies] = useState([]);
@@ -26,16 +27,18 @@ const Popular = () => {
       <div className='grid gap-6 mb-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
         {movies.map(
           ({ id, original_title, poster_path, release_date, vote_average }) => (
-            <div key={id} className='p-3 rounded-lg bg-[#0f0f0f]'>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                alt={original_title}
-                className='rounded-lg'
-              />
-              <h3 className='mt-3 text-lg font-bold'>{original_title}</h3>
-              <h4 className='text-sm'> Release Date: {release_date} </h4>
-              <h4 className='text-sm'> Vote: {vote_average.toFixed(1)} </h4>
-            </div>
+            <Link key={id} to={`/details/${id}`}>
+              <div className='p-3 rounded-lg bg-[#0f0f0f]'>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                  alt={original_title}
+                  className='rounded-lg'
+                />
+                <h3 className='mt-3 text-lg font-bold'>{original_title}</h3>
+                <h4 className='text-sm'> Release Date: {release_date} </h4>
+                <h4 className='text-sm'> Vote: {vote_average.toFixed(1)} </h4>
+              </div>
+            </Link>
           )
         )}
       </div>

@@ -7,6 +7,7 @@ import Movies from './pages/Movies';
 import TvShows from './pages/TvShows';
 import Search from './pages/Search';
 import Error from './pages/Error';
+import Details from './pages/Details';
 
 function App() {
   const router = createBrowserRouter([
@@ -30,6 +31,10 @@ function App() {
         {
           path: '/search',
           element: <Search />,
+        },
+        {
+          path: '/details/:id',
+          element: <Details />,
         },
       ],
     },

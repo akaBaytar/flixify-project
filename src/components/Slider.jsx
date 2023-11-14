@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Autoplay } from 'swiper/modules';
@@ -49,15 +50,17 @@ const Slider = () => {
       }}>
       {movies.map(({ id, original_title, poster_path, vote_average }) => (
         <SwiperSlide key={id}>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-            alt={original_title}
-            className='rounded-t-lg mx-auto w-full'
-          />
-          <div className='flex gap-1 justify-center font-semibold rounded-b-lg py-3 bg-[#0f0f0f]'>
-            <StarFill className='text-xl text-yellow-500' />
-            {`${vote_average.toFixed(1)} / 10`}
-          </div>
+          <Link to={`/details/${id}`}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+              alt={original_title}
+              className='rounded-t-lg mx-auto w-full'
+            />
+            <div className='flex gap-1 justify-center font-semibold rounded-b-lg py-3 bg-[#0f0f0f]'>
+              <StarFill className='text-xl text-yellow-500' />
+              {`${vote_average.toFixed(1)} / 10`}
+            </div>
+          </Link>
         </SwiperSlide>
       ))}
     </Swiper>
