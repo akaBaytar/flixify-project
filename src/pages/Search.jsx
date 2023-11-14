@@ -1,22 +1,38 @@
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import useFetch from '../hooks/useFetch';
-
 function Search() {
-  const location = useLocation();
-  const searchQuery = new URLSearchParams(location.search).get('query');
+  const [movies, setMovies] = useState([]);
 
-  const { data } = useFetch(
-    `https://api.themoviedb.org/3/search/movie?query=${searchQuery}`
-  );
+  const location = useLocation();
+
+  const queryParams = new URLSearchParams(location.search);
+
+  const searchQuery = queryParams.get('query');
+  const selectedOption = queryParams.get('option');
+
+useEffect(()=>{
+    const fetchMovies = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/search/${selectedOption}?query=${searchQuery}&api_key=${
+          import.meta.env.VITE_API_KEY
+        }`
+      );
+
+      const data = await response.json();
+      setMovies(data.results);
+    };
+
+    fetchMovies()
+}, [])
+
 
   return (
     <Fragment>
       <div className='container'>
         <h2 className='my-3 text-2xl'>Search Results for: {searchQuery}</h2>
         <div className='grid gap-6 mb-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-          {data?.results.map(
+          {movies.map(
             ({
               id,
               original_title,

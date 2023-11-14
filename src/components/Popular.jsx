@@ -8,7 +8,7 @@ const Popular = () => {
   const fetchMovies = async (page) => {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/popular?api_key=${
-        import.meta.env.VITE_API_KEY_SHORT
+        import.meta.env.VITE_API_KEY
       }&page=${page}`
     );
 
@@ -39,9 +39,9 @@ const Popular = () => {
           )
         )}
       </div>
-      <div className='flex gap-6 justify-center'>
+      <div className='flex gap-6 justify-center mb-12'>
         <button
-          className='px-3 py-1 border-2 rounded-lg'
+          className='px-6 border-2 rounded-lg'
           onClick={() =>
             setCurrentPage((prevState) => Math.max(prevState - 1, 1))
           }>
@@ -51,7 +51,7 @@ const Popular = () => {
           {currentPage}
         </span>
         <button
-          className='px-3 py-1 border-2 rounded-lg'
+          className='px-6 border-2 rounded-lg'
           onClick={() =>
             setCurrentPage((prevState) => Math.min(prevState + 1, totalPages))
           }>
