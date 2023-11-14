@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Search() {
   const [movies, setMovies] = useState([]);
@@ -11,7 +11,7 @@ function Search() {
   const searchQuery = queryParams.get('query');
   const selectedOption = queryParams.get('option');
 
-useEffect(()=>{
+  useEffect(() => {
     const fetchMovies = async () => {
       const response = await fetch(
         `https://api.themoviedb.org/3/search/${selectedOption}?query=${searchQuery}&api_key=${
@@ -23,9 +23,8 @@ useEffect(()=>{
       setMovies(data.results);
     };
 
-    fetchMovies()
-}, [])
-
+    fetchMovies();
+  }, [searchQuery, selectedOption]);
 
   return (
     <Fragment>
@@ -40,16 +39,18 @@ useEffect(()=>{
               release_date,
               vote_average,
             }) => (
-              <div key={id} className='p-3 rounded-lg bg-[#0f0f0f]'>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                  alt={original_title}
-                  className='rounded-lg'
-                />
-                <h3 className='mt-3 text-lg font-bold'>{original_title}</h3>
-                <h4 className='text-sm'> Release Date: {release_date} </h4>
-                <h4 className='text-sm'> Vote: {vote_average.toFixed(1)} </h4>
-              </div>
+              <Link key={id} to={`/details/${id}`}>
+                <div className='p-3 rounded-lg bg-[#0f0f0f]'>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                    alt={original_title}
+                    className='rounded-lg'
+                  />
+                  <h3 className='mt-3 text-lg font-bold'>{original_title}</h3>
+                  <h4 className='text-sm'> Release Date: {release_date} </h4>
+                  <h4 className='text-sm'> Vote: {vote_average.toFixed(1)} </h4>
+                </div>
+              </Link>
             )
           )}
         </div>
