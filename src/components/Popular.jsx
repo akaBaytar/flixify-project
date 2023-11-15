@@ -27,7 +27,7 @@ const Popular = () => {
       <div className='grid gap-6 mb-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
         {movies.map(
           ({ id, original_title, poster_path, release_date, vote_average }) => (
-            <Link key={id} to={`/details/${id}`}>
+            <Link key={id} to={`/details/movie/${id}`}>
               <div className='p-3 rounded-lg bg-[#0f0f0f]'>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${poster_path}`}

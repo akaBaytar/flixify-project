@@ -33,7 +33,7 @@ function App() {
           element: <Search />,
         },
         {
-          path: '/details/:id',
+          path: '/details/:genre/:id',
           element: <Details />,
         },
       ],

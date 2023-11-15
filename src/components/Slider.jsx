@@ -50,7 +50,7 @@ const Slider = () => {
       }}>
       {movies.map(({ id, original_title, poster_path, vote_average }) => (
         <SwiperSlide key={id}>
-          <Link to={`/details/${id}`}>
+          <Link to={`/details/movie/${id}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500${poster_path}`}
               alt={original_title}
