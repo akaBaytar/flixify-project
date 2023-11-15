@@ -12,11 +12,11 @@ body {
 }
 
 .activeLink {
-  @apply text-[#beadfa];
+  @apply text-yellow-500;
 }
 
 .navLink {
-  @apply hover:text-[#beadfa] duration-300;
+  @apply hover:text-yellow-500 duration-300;
 }
 
 .background {

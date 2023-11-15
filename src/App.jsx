@@ -5,6 +5,7 @@ import Root from './components/Root';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
 import TvShows from './pages/TvShows';
+import About from './pages/About';
 import Search from './pages/Search';
 import Error from './pages/Error';
 import Details from './pages/Details';
@@ -27,6 +28,10 @@ function App() {
         {
           path: '/tv-shows',
           element: <TvShows />,
+        },
+        {
+          path: '/about',
+          element: <About />,
         },
         {
           path: '/search',

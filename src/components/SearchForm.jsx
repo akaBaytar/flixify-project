@@ -17,7 +17,7 @@ const SearchForm = () => {
 
   return (
     <form className='w-full  py-12 mx-auto' onSubmit={onSubmit}>
-      <div className='flex gap-3 text-sm accent-[#beadfa]'>
+      <div className='flex gap-3 text-sm accent-yellow-500'>
         <div className='flex items-center gap-1'>
           <input
             type='radio'
@@ -49,9 +49,9 @@ const SearchForm = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder='Enter movie or TV show'
-          className='h-full w-full bg-transparent pl-2 border-2 rounded-l-lg text-sm outline-none border-[#beadfa] '
+          className='h-full w-full bg-transparent pl-2 border-2 rounded-l-lg text-sm outline-none border-yellow-500 '
         />
-        <button type='submit' className='h-full px-6 rounded-r-lg bg-[#beadfa]'>
+        <button type='submit' className='h-full px-6 rounded-r-lg bg-yellow-500'>
           <Search className='text-black' />
         </button>
       </div>

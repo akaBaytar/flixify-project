@@ -10,21 +10,18 @@ const Header = () => {
         <nav>
           <ul className='flex gap-6 text-sm'>
             <li>
-              <NavLink
-                to='/movies'
-                className={({ isActive }) =>
-                  isActive ? 'activeLink' : 'navLink'
-                }>
+              <NavLink to='/movies' className={({ isActive }) => (isActive ? 'activeLink' : 'navLink')}>
                 Movies
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to='/tv-shows'
-                className={({ isActive }) =>
-                  isActive ? 'activeLink' : 'navLink'
-                }>
+              <NavLink to='/tv-shows' className={({ isActive }) => (isActive ? 'activeLink' : 'navLink')}>
                 Tv Shows
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/about' className={({ isActive }) => (isActive ? 'activeLink' : 'navLink')}>
+                About
               </NavLink>
             </li>
           </ul>
