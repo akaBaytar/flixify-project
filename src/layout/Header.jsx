@@ -8,14 +8,14 @@ const Header = () => {
           <Link to='/'>Flixify</Link>
         </h1>
         <nav>
-          <ul className='flex gap-6 text-sm'>
+          <ul className='flex gap-4 text-xs md:text-sm'>
             <li>
-              <NavLink to='/movies' className={({ isActive }) => (isActive ? 'activeLink' : 'navLink')}>
+              <NavLink to='/' className={({ isActive }) => (isActive ? 'activeLink' : 'navLink')}>
                 Movies
               </NavLink>
             </li>
             <li>
-              <NavLink to='/tv-shows' className={({ isActive }) => (isActive ? 'activeLink' : 'navLink')}>
+              <NavLink to='/tv' className={({ isActive }) => (isActive ? 'activeLink' : 'navLink')}>
                 Tv Shows
               </NavLink>
             </li>

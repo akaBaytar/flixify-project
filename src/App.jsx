@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Root from './components/Root';
 import Home from './pages/Home';
-import Movies from './pages/Movies';
 import TvShows from './pages/TvShows';
 import About from './pages/About';
 import Search from './pages/Search';
@@ -22,11 +21,7 @@ function App() {
           element: <Home />,
         },
         {
-          path: '/movies',
-          element: <Movies />,
-        },
-        {
-          path: '/tv-shows',
+          path: '/tv',
           element: <TvShows />,
         },
         {

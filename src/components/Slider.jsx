@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Autoplay } from 'swiper/modules';
@@ -11,10 +11,12 @@ import 'swiper/css';
 const Slider = () => {
   const [movies, setMovies] = useState([]);
 
+  const { pathname } = useLocation();
+
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${
+        `https://api.themoviedb.org/3${pathname === '/tv' ? '/tv/on_the_air' : '/movie/now_playing'}?api_key=${
           import.meta.env.VITE_API_KEY
         }`
       );
@@ -24,7 +26,7 @@ const Slider = () => {
     };
 
     fetchMovies();
-  }, []);
+  }, [pathname]);
 
   return (
     <Swiper
@@ -50,7 +52,7 @@ const Slider = () => {
       }}>
       {movies.map(({ id, original_title, poster_path, vote_average }) => (
         <SwiperSlide key={id}>
-          <Link to={`/details/movie/${id}`}>
+          <Link to={`/details${pathname === '/tv' ? '/tv' : '/movie'}/${id}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500${poster_path}`}
               alt={original_title}

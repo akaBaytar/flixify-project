@@ -26,6 +26,8 @@ const Details = () => {
     title,
     vote_average,
     type,
+    original_name,
+    name,
     created_by,
     seasons,
     first_air_date,
@@ -71,12 +73,14 @@ const Details = () => {
             </div>
             <div className='sm:pl-4 md:w-2/3 xl:flex-1'>
               <h2 className='text-4xl font-bold'>{original_title}</h2>
+              <h2 className='text-4xl font-bold'>{original_name}</h2>
               <h3 className='mt-1 italic text-sm'>{title}</h3>
+              <h3 className='mt-1 italic text-sm'>{name}</h3>
               <span className='flex gap-1 mt-4'>
                 <StarFill className='text-lg text-yellow-500' />
                 {vote_average.toFixed(1)} / 10
               </span>
-              <span className='mt-2'>Release Date: {release_date}</span>
+              {release_date && <span className='mt-2'>Release Date: {release_date}</span>}
               {tagline && <p className='text-xl italic font-mono mt-4 pt-2'>{tagline}</p>}
               <p className='mt-4 text-sm'>{overview}</p>
               {genres.length > 0 && <h4 className='mt-4 mb-1 text-lg font-semibold'>Genres</h4>}
