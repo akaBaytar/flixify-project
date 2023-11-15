@@ -79,14 +79,14 @@ const Details = () => {
               <span className='mt-2'>Release Date: {release_date}</span>
               {tagline && <p className='text-xl italic font-mono mt-4 pt-2'>{tagline}</p>}
               <p className='mt-4 text-sm'>{overview}</p>
-              {genres && <h4 className='mt-4 mb-1 text-lg font-semibold'>Genres</h4>}
+              {genres.length > 0 && <h4 className='mt-4 mb-1 text-lg font-semibold'>Genres</h4>}
               {genres &&
                 genres.map(({ id, name }) => (
                   <span key={id} className='mr-2 py-1 px-4 rounded-lg text-xs bg-black'>
                     {name}
                   </span>
                 ))}
-              {created_by && <h4 className='mt-4 mb-2 text-lg font-semibold'>Created by</h4>}
+              {created_by && created_by.length > 0 && <h4 className='mt-4 mb-2 text-lg font-semibold'>Created by</h4>}
               <div className='flex gap-4'>
                 {created_by &&
                   created_by.map(({ id, name, profile_path }) => (
@@ -101,18 +101,18 @@ const Details = () => {
                   ))}
               </div>
               <h4 className='mt-8 text-lg font-semibold'>Stat for nerds</h4>
-              {budget && (
+              {budget ? (
                 <p className='mt-1 text-sm'>
                   <span className='text-yellow-500'>Budget:</span> $
                   {budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </p>
-              )}
-              {revenue && (
+              ) : null}
+              {revenue ? (
                 <p className='text-sm'>
                   <span className='text-yellow-500'>Revenue:</span> $
                   {revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </p>
-              )}
+              ) : null}
               {runtime && (
                 <p className='text-sm'>
                   <span className='text-yellow-500'>Runtime:</span> {runtime} minutes
@@ -148,7 +148,7 @@ const Details = () => {
                   <span className='text-yellow-500'>Type:</span> {type}
                 </p>
               )}
-              <h5 className='mt-4 text-lg font-semibold'>Production Companies</h5>
+              {production_companies.length > 0 && <h5 className='mt-4 text-lg font-semibold'>Production Companies</h5>}
               {production_companies.map(({ id, name }) => (
                 <span key={id} className='mr-4 text-xs'>
                   {name}
