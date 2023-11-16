@@ -28,10 +28,12 @@
 
 4. Open your browser and go to  http://localhost:5173/ to view the application.
 
+- Don't forget to register on [MovieDatabase](https://developer.themoviedb.org/reference/intro/getting-started) to obtain an API key and create a `.env` file; the key should be named `VITE_API_KEY`.
+
 ## Deployment
 - The project will be deployed using Vercel. 
-- Once the development is complete, the live version of the application can be accessed at [URL_HERE].
-
+- Once the development is complete, the live version of the application can be accessed at [here](https://flixify-burakbilgili.vercel.app).
+- 
 ## Feedback
 - Feel free to provide feedback, report issues, or contribute to the project.
 - I appreciate your input!
